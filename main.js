@@ -19,6 +19,7 @@ function findInput(input,matrix){
             }
         }
     }
+    return null
 
 }
 module.exports = (
