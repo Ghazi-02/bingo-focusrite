@@ -6,6 +6,7 @@ let bingoCard = [
     [6,10,3,18,5],//3
     [1,12,20,15,19]//4
     ] 
+let listOfnums= [7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1]
 
 function findInput(input,matrix){
     for(let i = 0; i < matrix.length;i++){
@@ -20,8 +21,28 @@ function findInput(input,matrix){
         }
     }
     return null
-    
+
 }
+
+
+
+function main(){
+    let input = findInput(listOfnums[0],bingoCard) // cycle through list of nums
+    
+    let MarkedRows = new Map()
+    //let MarkedColumn = new Map()
+    
+    if(MarkedRows.has(input.row)){
+        let rowArray = MarkedRows.get(input.row)
+        rowArray.push(input.input)
+        MarkedRows.set(input.row,rowArray)
+    }else{
+        MarkedRows.set(input.row,[input.input])
+    }
+
+}
+console.log(main())
+
 module.exports = (
     findInput
 )
