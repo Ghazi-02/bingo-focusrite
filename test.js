@@ -18,3 +18,11 @@ describe("Input finder", () =>{
         assert.deepStrictEqual(result,null)
     })
 })
+
+describe("Marked Checker", ()=>{
+    
+    it("should return check if the input has been marked",()=>{
+        const result = checkMarked(7)
+        assert.deepStrictEqual(result,true)
+    })
+})
