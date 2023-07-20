@@ -30,16 +30,26 @@ function main(){
     let input = findInput(listOfnums[0],bingoCard) // cycle through list of nums
     
     let MarkedRows = new Map()
-    //let MarkedColumn = new Map()
+    let MarkedColumn = new Map()
     
     if(MarkedRows.has(input.row)){
-        let rowArray = MarkedRows.get(input.row)
+        let rowArray =MarkedRows.get(input.row)
         rowArray.push(input.input)
-        MarkedRows.set(input.row,rowArray)
+         MarkedRows.set(input.row,rowArray)
+     }else{
+         MarkedRows.set(input.row,[input.input])
+     }
+    
+    if(MarkedColumn.has(input.column)){
+        let colArray = MarkedColumn.get(input.column)
+        MarkedColumn.set(input.column,colArray)
     }else{
-        MarkedRows.set(input.row,[input.input])
+        MarkedColumn.set(input.column,[input.input])
     }
 
+
+
+ 
 }
 console.log(main())
 
