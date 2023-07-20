@@ -25,6 +25,14 @@ function findInput(input,matrix){
 }
 
 
+function BingoChecker(map){
+    for(let values of map.values()){
+        if(values.length == 4){
+            return "BINGO"
+        }
+    }
+
+}
 
 function main(){
     let input = findInput(listOfnums[0],bingoCard) // cycle through list of nums
@@ -46,7 +54,8 @@ function main(){
     }else{
         MarkedColumn.set(input.column,[input.input])
     }
-
+    BingoChecker(MarkedColumn)
+    BingoChecker(MarkedRows)
 
 
  
