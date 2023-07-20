@@ -1,8 +1,8 @@
-const assert = require('assert');
+const assert = require('assert')
+const { findInput, bingoChecker } = require("./main")
 
-var findInput = require("./main")
 let listOfnums= [7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1]   
-
+let MarkedRows = new Map()
 let bingoCard = [
     //0,1,2,3,4     
     [22,13,17,11,0],//0
@@ -26,7 +26,7 @@ describe("Input finder", () =>{
 describe("Marked Checker", ()=>{
 
     it("should check if the input has been marked",()=>{
-        let MarkedRows = new Map()
+        
         let usedNums = []
         for (let i = 0; i < 10; i++){
             const input = findInput(listOfnums[i],bingoCard) // cycle through list of nums
@@ -45,7 +45,14 @@ describe("Marked Checker", ()=>{
 
         
         assert.deepStrictEqual(MarkedRows.get(0),[11,17,0])
-        assert.deepStrictEqual(MarkedRows.get(1),[4,23,])
+        assert.deepStrictEqual(MarkedRows.get(1),[4,23,2])
+    
         
+    })
+})
+
+describe("Bingo Checker",()=>{
+    it("should check if player can bingo",()=>{
+        assert.deepStrictEqual(bingoChecker(MarkedRows),false)
     })
 })

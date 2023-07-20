@@ -25,13 +25,13 @@ function findInput(input,matrix){
 }
 
 
-function BingoChecker(map){
+function bingoChecker(map){
     for(let values of map.values()){
         if(values.length == 4){
-            return "BINGO"
+            return true
         }
     }
-
+return false
 }
 
 function main(){
@@ -41,7 +41,7 @@ function main(){
     let MarkedColumn = new Map()
     
     if(MarkedRows.has(input.row)){
-        let rowArray =MarkedRows.get(input.row)
+        let rowArray = MarkedRows.get(input.row)
         rowArray.push(input.input)
          MarkedRows.set(input.row,rowArray)
      }else{
@@ -54,14 +54,15 @@ function main(){
     }else{
         MarkedColumn.set(input.column,[input.input])
     }
-    BingoChecker(MarkedColumn)
-    BingoChecker(MarkedRows)
+    bingoChecker(MarkedColumn)
+    bingoChecker(MarkedRows)
 
 
  
 }
 console.log(main())
 
-module.exports = (
-    findInput
-)
+module.exports = {
+    findInput,
+    bingoChecker
+}
