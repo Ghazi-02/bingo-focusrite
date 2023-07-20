@@ -11,6 +11,10 @@ describe("Input finder", () =>{
         ] 
     it("should return the input,row and column",()=>{
         const result = findInput(7,bingoCard);
-        assert.deepStrictEqual(result,{input:7,row:2,col:4})
+        assert.deepStrictEqual(result,{input:7,row:2,column:4})
+    })
+    it("should return null if the input doesnt exist", ()=>{
+        const result = findInput(999,bingoCard);
+        assert.deepStrictEqual(result,null)
     })
 })
