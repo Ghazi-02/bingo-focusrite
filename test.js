@@ -11,6 +11,6 @@ describe("Input finder", () =>{
         ] 
     it("should return the input,row and column",()=>{
         const result = findInput(7,bingoCard);
-        assert.deepStrictEquals(result,{input:7,row:2,col:4})
+        assert.deepStrictEqual(result,{input:7,row:2,col:4})
     })
 })
