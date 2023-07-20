@@ -8,12 +8,12 @@ let bingoCard = [
     ] 
 let listOfnums= [7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1]
 
-function findInput(input,matrix){
+function findInput(value,matrix){
     for(let i = 0; i < matrix.length;i++){
         for(let j = 0; j < matrix.length;j++){
-            if(matrix[i][j] == input){
+            if(matrix[i][j] == value){
                 return {
-                    input: input,
+                    input: value,
                     row: i ,
                     column: j,
                 }
@@ -31,7 +31,16 @@ function bingoChecker(map){
             return true
         }
     }
-return false
+    return false
+}
+function mapLogic(map,inputValue,direction){
+    if(map.has(direction)){
+        let directionArray = map.get(direction)
+        array.push(inputValue)
+        map.set(direction,directionArray)
+    }else{
+        map.set(direction,[inputValue])
+    }
 }
 
 function main(){
@@ -40,20 +49,8 @@ function main(){
     let MarkedRows = new Map()
     let MarkedColumn = new Map()
     
-    if(MarkedRows.has(input.row)){
-        let rowArray = MarkedRows.get(input.row)
-        rowArray.push(input.input)
-         MarkedRows.set(input.row,rowArray)
-     }else{
-         MarkedRows.set(input.row,[input.input])
-     }
-    
-    if(MarkedColumn.has(input.column)){
-        let colArray = MarkedColumn.get(input.column)
-        MarkedColumn.set(input.column,colArray)
-    }else{
-        MarkedColumn.set(input.column,[input.input])
-    }
+    mapLogic(MarkedColumn,input,input.column)
+    mapLogic(MarkedRows,input,input.row)
     bingoChecker(MarkedColumn)
     bingoChecker(MarkedRows)
 
