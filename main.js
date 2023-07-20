@@ -33,14 +33,16 @@ function bingoChecker(map){
     }
     return false
 }
-function mapLogic(map,inputValue,direction){
-    if(map.has(direction)){
-        let directionArray = map.get(direction)
-        array.push(inputValue)
-        map.set(direction,directionArray)
+function mapLogic(map,inputValue,directionIndex){
+   
+    if(map.has(directionIndex)){
+        let directionArray = map.get(directionIndex)
+        directionArray.push(inputValue)
+        map.set(directionIndex,directionArray)
     }else{
-        map.set(direction,[inputValue])
+        map.set(directionIndex,[inputValue])
     }
+  
 }
 
 function main(){
@@ -49,17 +51,18 @@ function main(){
     let MarkedRows = new Map()
     let MarkedColumn = new Map()
     
-    mapLogic(MarkedColumn,input,input.column)
-    mapLogic(MarkedRows,input,input.row)
+    mapLogic(MarkedColumn,input.input,input.column)
+    mapLogic(MarkedRows,input.input,input.row)
     bingoChecker(MarkedColumn)
     bingoChecker(MarkedRows)
 
 
  
 }
-console.log(main())
+
 
 module.exports = {
     findInput,
-    bingoChecker
+    bingoChecker,
+    mapLogic
 }
