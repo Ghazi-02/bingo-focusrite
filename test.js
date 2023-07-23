@@ -32,11 +32,7 @@ describe("Marked Checker", ()=>{
         for (let i = 0; i < 10; i++){
             const input = findInput(listOfnums[i],bingoCard) // cycle through list of nums
             usedNums.push(listOfnums[i])
-            
             mapLogic(MarkedRows,input.input,input.row)
-            
-        
-        
     }
     console.log(MarkedRows)
     assert.deepStrictEqual(MarkedRows.get(0),[11,17,0])
@@ -49,4 +45,13 @@ describe("Bingo Checker",()=>{
     it("should check if player can bingo",()=>{
         assert.deepStrictEqual(bingoChecker(MarkedRows),false)
     })
+})
+ 
+describe("Check if it all works",()=>{
+
+
+    it("Should return bingo",()=>{
+        assert.deepStrictEqual()
+    })
+
 })
