@@ -7,13 +7,29 @@ let bingoCard = [
     [1,12,20,15,19]//4
     ] 
 let listOfnums= [7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1]
+
+function createNumList(){
+    let list= []
+    let uniqueSet = new Set()
+    for(let i = 0; i < 30; i++){
+        let randVal = Math.floor(Math.random()*50)
+        if (!uniqueSet.has(randVal)){
+            list.push(randVal)
+            uniqueSet.add(randVal)
+        }else{
+            i = i - 1
+        }
+        
+    }
+    return list
+}
 function bingoCardGenerator(){
     let bingoCard =[] 
     let uniqueSet = new Set()
     for(let i = 0; i < 5; i++){
         let bingoRow = []
         for(let j = 0; j < 5; j++){
-            let randVal = Math.floor(Math.random() * 100)
+            let randVal = Math.floor(Math.random() * 50)
             if (!uniqueSet.has(randVal)){
                 uniqueSet.add(randVal)
                 bingoRow.push(randVal)     
@@ -82,5 +98,7 @@ module.exports = {
     findInput,
     bingoChecker,
     mapLogic,
-    bingoCardGenerator
+    bingoCardGenerator,
+    listOfnums,
+    createNumList
 }
