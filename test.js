@@ -54,20 +54,20 @@ describe("Bingo card generator", ()=>{
     })
 })
 describe("Check if it all works",()=>{
-
-
     it("Should return final game result",()=>{
-      
         console.log(game(listOfnums,bingoCard))
         let x = 0;
-    while (x < 10){
-        let list = createNumList()
-        let card = bingoCardGenerator()
-        console.log("List:",list)
-        console.log("Bingo Card:",card)
-        console.log(game(list,card))
-         x += 1
+        while (x < 10){
+            let list = createNumList()
+            let card = bingoCardGenerator()
+            console.log("List:",list)
+            console.log("Bingo Card:",card)
+            console.log(game(list,card))
+            x += 1
     } 
     })
+
+})
+describe("Fastest bingo board checker",()=>{
 
 })
