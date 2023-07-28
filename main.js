@@ -78,23 +78,30 @@ function mapLogic(map,inputValue,directionIndex){
   
 }
 
-function main(){
-    let input = findInput(listOfnums[0],bingoCard) // cycle through list of nums
-    
-    let MarkedRows = new Map()
-    let MarkedColumn = new Map()
-    
-    mapLogic(MarkedColumn,input.input,input.column)
-    mapLogic(MarkedRows,input.input,input.row)
-    bingoChecker(MarkedColumn)
-    bingoChecker(MarkedRows)
 
+function game(inputList,board){
+    let MarkedRows = new Map()
+    let MarkedColumns = new Map()
+    for (let i= 0; i < inputList.length; i++){
+        let input = findInput(i, board)
+        mapLogic(MarkedColumns,input.input,input.column)
+        mapLogic(MarkedRows,input.input,input.row)
+        if (bingoChecker(MarkedColumns) == true || bingoChecker(MarkedRows) == true){
+            return true
+        }
+    }
+    return false
+}
+
+function main(){
+    
 
  
 }
 
 
 module.exports = {
+    game,
     findInput,
     bingoChecker,
     mapLogic,
