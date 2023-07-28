@@ -91,12 +91,21 @@ function game(inputList,board){
         mapLogic(MarkedColumns,input.input,input.column)
         mapLogic(MarkedRows,input.input,input.row)
         if (bingoChecker(MarkedColumns) == true || bingoChecker(MarkedRows) == true){
-            return true
+            return {bingo: true, speed: i}
         }
     }
-    return false
+    return {bingo:false,speed:inputList.length}
 }
-
+function fastestBingoBoard(listOfBoards){
+    let fastestBoard = {bingo : null, speed : 9999}
+    for(board in listOfBoards){
+        let currBoard = game(board)
+        if (currBoard.bingo == true && currBoard.speed < fastestBoard.speed){
+            fastestBoard = curr
+        }
+    }
+    return fastestBoard
+}
 function main(){
     
 
