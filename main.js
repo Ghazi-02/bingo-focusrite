@@ -87,7 +87,6 @@ function game(inputList,board){
         if (input == null){
             continue;
         }
-        console.log(input)
         mapLogic(MarkedColumns,input.input,input.column)
         mapLogic(MarkedRows,input.input,input.row)
         if (bingoChecker(MarkedColumns) == true || bingoChecker(MarkedRows) == true){
@@ -97,12 +96,13 @@ function game(inputList,board){
     return {bingo:false,speed:inputList.length}
 }
 function fastestBingoBoard(listOfInputs,listOfBoards){
-    let fastestBoard = {board: null,bingo : null, speed : 9999}
-    let currBoard;
-    for(board in listOfBoards){
-        currBoard =game(listOfInputs,board)
+    let fastestBoard= {speed: 9999}
+
+    for(let i = 0; i < listOfBoards.length; i++){
+        let currBoard =game(listOfInputs,board)
         if (currBoard.bingo == true && currBoard.speed < fastestBoard.speed){
-            fastestBoard = {board: board,
+            fastestBoard = {
+                            board: board,
                             bingo: currBoard.bingo,
                             speed:currBoard.speed
                         } 
@@ -124,5 +124,6 @@ module.exports = {
     mapLogic,
     bingoCardGenerator,
     listOfnums,
-    createNumList
+    createNumList,
+    fastestBingoBoard
 }

@@ -1,5 +1,5 @@
 const assert = require('assert')
-const { game,findInput, bingoChecker, mapLogic, bingoCardGenerator,createNumList } = require("./main")
+const { game,findInput, bingoChecker, mapLogic, bingoCardGenerator,createNumList,fastestBingoBoard } = require("./main")
 
 let listOfnums= [7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1]   
 let MarkedRows = new Map()
@@ -69,5 +69,7 @@ describe("Check if it all works",()=>{
 
 })
 describe("Fastest bingo board checker",()=>{
-
+    it("Should return the bingo board that gets bingo the quickest", ()=>{
+        console.log(fastestBingoBoard(listOfnums,[bingoCardGenerator(),bingoCardGenerator(),bingoCardGenerator()]))
+    })
 })
