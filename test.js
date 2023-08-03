@@ -1,6 +1,7 @@
 const assert = require('assert')
 const { game,findInput, bingoChecker, mapLogic, bingoCardGenerator,createNumList,fastestBingoBoard } = require("./main")
-const {readBingoBoard}=require('./file')
+const {readBingoBoard,readInputList}=require('./file')
+const { deflateSync } = require('zlib')
 let listOfnums= [7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1]   
 let MarkedRows = new Map()
 let bingoCard = [
@@ -76,5 +77,13 @@ describe("Fastest bingo board checker",()=>{
         console.log(listOfnums)
         console.log(fastestBingoBoard(listOfnums,[card1,card2,card3]))
         console.log(readBingoBoard('./board.txt'))
+        console.log(readInputList("./inputList.txt"))
+    })
+})
+
+describe("File reading tester",()=>{
+    it("Show the data of the read files",()=>{
+        console.log(readBingoBoard('./board.txt'))
+        console.log(readInputList("./inputList.txt"))
     })
 })

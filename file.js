@@ -19,8 +19,16 @@ function readBingoBoard(path){
     return bingoBoard
 
 }
+function readInputList(path) {
+    const content = fs.readFileSync(path, 'utf-8');
+    const inputList = content.trim().split(' ');
+    const numericInputs = inputList.map((input) => parseInt(input, 10));
+  
+    return numericInputs;
+  }
 
 
 module.exports={
     readBingoBoard,
+    readInputList,
 }
