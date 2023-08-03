@@ -1,7 +1,9 @@
 const assert = require('assert')
-const { game,findInput, bingoChecker, mapLogic, bingoCardGenerator,createNumList,fastestBingoBoard } = require("./main")
+
+const { game,findInput, bingoChecker, mapLogic,fastestBingoBoard } = require("./game")
 const {readBingoBoard,readInputList}=require('./file')
-const { deflateSync } = require('zlib')
+const {createNumList, bingoCardGenerator}= require('./utilityfunctions')
+
 let listOfnums= [7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1]   
 let MarkedRows = new Map()
 let bingoCard = [
@@ -11,7 +13,8 @@ let bingoCard = [
     [21,9,14,16,7],//2
     [6,10,3,18,5],//3
     [1,12,20,15,19]//4
-    ] 
+]
+  
 describe("Input finder", () =>{
 
     it("should return the input,row and column",()=>{
