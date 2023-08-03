@@ -21,7 +21,7 @@ function readBingoBoard(path){
 }
 function readInputList(path) {
     const content = fs.readFileSync(path, 'utf-8');
-    const inputList = content.trim().split(' ');
+    const inputList = content.trim().split(',');
     const numericInputs = inputList.map((input) => parseInt(input, 10));
   
     return numericInputs;

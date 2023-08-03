@@ -76,14 +76,13 @@ describe("Fastest bingo board checker",()=>{
         let card3=bingoCardGenerator()
         console.log(listOfnums)
         console.log(fastestBingoBoard(listOfnums,[card1,card2,card3]))
-        console.log(readBingoBoard('./board.txt'))
-        console.log(readInputList("./inputList.txt"))
+
     })
 })
 
 describe("File reading tester",()=>{
     it("Show the data of the read files",()=>{
-        console.log(readBingoBoard('./board.txt'))
-        console.log(readInputList("./inputList.txt"))
+        console.log(readBingoBoard('./textfiles/board.txt'))
+        console.log(readInputList("./textfiles/inputList.txt"))
     })
 })
