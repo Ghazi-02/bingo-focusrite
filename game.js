@@ -42,6 +42,7 @@ function fastestBingoBoard(listOfInputs,listOfBoards){
         let board = listOfBoards[i]
         let currBoard =game(listOfInputs,board)
         if (currBoard.bingo == true && currBoard.speed < fastestBoard.speed){
+    
             fastestBoard = {
                             board: board,
                             bingo: currBoard.bingo,
