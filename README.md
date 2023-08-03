@@ -13,6 +13,8 @@ First, the script will ask you to provide the name of your input file. This shou
 
 Next, the script will ask you to provide the name of your board file(s). If there is more than one file, separate them by commas. Each board file should also be located in the ./textfiles/ directory and should contain the configuration of a bingo board, also separated by newlines.
 
+If there's only one board, the game will run and then inform you if you've won or lost. If there's more than one board, the game will determine which board would achieve bingo the fastest and display that board.
+
 Input files must have the following format:
 ```bash
 7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
@@ -25,4 +27,4 @@ Board files must have the following format:
 20 11 10 24 4
 14 21 16 12 6
 ```
-If there's only one board, the game will run and then inform you if you've won or lost. If there's more than one board, the game will determine which board would achieve bingo the fastest and display that board.
+
