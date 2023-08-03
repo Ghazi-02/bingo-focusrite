@@ -55,7 +55,7 @@ describe("Bingo card generator", ()=>{
 })
 describe("Check if it all works",()=>{
     it("Should return final game result",()=>{
-        console.log(game(listOfnums,bingoCard))
+        console.log('hardcoded:',game(listOfnums,bingoCard))
         let x = 0;
         while (x < 10){
             let list = createNumList()

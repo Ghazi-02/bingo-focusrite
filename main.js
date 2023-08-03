@@ -60,7 +60,7 @@ function findInput(value,matrix){
 
 function bingoChecker(map){
     for(let values of map.values()){
-        if(values.length == 4){
+        if(values.length == 5){
             return true
         }
     }
