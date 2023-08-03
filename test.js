@@ -70,6 +70,10 @@ describe("Check if it all works",()=>{
 })
 describe("Fastest bingo board checker",()=>{
     it("Should return the bingo board that gets bingo the quickest", ()=>{
-        console.log(fastestBingoBoard(listOfnums,[bingoCardGenerator(),bingoCardGenerator(),bingoCardGenerator()]))
+        let card1=bingoCardGenerator()
+        let card2=bingoCardGenerator()
+        let card3=bingoCardGenerator()
+        console.log(listOfnums)
+        console.log(fastestBingoBoard(listOfnums,[card1,card2,card3]))
     })
 })

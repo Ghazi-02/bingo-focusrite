@@ -96,9 +96,10 @@ function game(inputList,board){
     return {bingo:false,speed:inputList.length}
 }
 function fastestBingoBoard(listOfInputs,listOfBoards){
-    let fastestBoard= {speed: 9999}
+    let fastestBoard= {speed: Infinity}
 
     for(let i = 0; i < listOfBoards.length; i++){
+        let board = listOfBoards[i]
         let currBoard =game(listOfInputs,board)
         if (currBoard.bingo == true && currBoard.speed < fastestBoard.speed){
             fastestBoard = {
